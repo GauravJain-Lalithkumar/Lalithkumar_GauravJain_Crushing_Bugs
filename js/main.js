@@ -24,8 +24,26 @@ function handleDragOver(e) {
 function handleDrop(e) {
     e.preventDefault();
     console.log('dropped an image');
+// bug fix #1 this checks if there is already a piece in the drop zone
 
+if (this.children.length > 0) {
+    alert ("Overlapped"); // alert message
+    return; // stops the function
+    }
+
+    // appends the dragged element to the drop zone
     this.appendChild(draggedPiece);
+
+    // gets the dragged element's id from the data transfer object (using 'draggedEl')
+    //let droppedElId = event.dataTransfer.getData('draggedEl');
+
+    // gets the ACTUAL dragged element, using thr ID 
+    //let droppedEl = document.querySelector(`#${droppedElId}`);
+
+    // append the dragged element to the drop zone
+    //this.appendChild(droppedEl);
+
+    //this.appendChild(document.querySelector(`#${droppedElId}`));) this the code that was originally there
 }
 
 // event listeners
