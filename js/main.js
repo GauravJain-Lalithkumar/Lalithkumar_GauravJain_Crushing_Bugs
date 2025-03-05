@@ -6,8 +6,11 @@ let theButtons = document.querySelectorAll('#buttonHolder img'),
 
 
 function changeBGImage() {
-
-    puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+// bug fix #2 this resets puzzle pieces and goes back to original position while changing background
+puzzlePieces.forEach(piece => {
+    document.querySelector('.puzzle-pieces').appendChild(piece);
+});
+puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 }
 
 function handleStartDrag() {
