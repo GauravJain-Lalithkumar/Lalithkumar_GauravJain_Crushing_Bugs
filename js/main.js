@@ -2,15 +2,25 @@ let theButtons = document.querySelectorAll('#buttonHolder img'),
     puzzleBoard = document.querySelector('.puzzle-board'),
     puzzlePieces = document.querySelectorAll('.puzzle-pieces img'),
     dropZones = document.querySelectorAll('.drop-zone'),
+    puzzlePieceTopLeft = document.querySelector('#topLeft'), 
+    puzzlePieceTopRight = document.querySelector('#topRight'), 
+    puzzlePieceBottomLeft = document.querySelector('#bottomLeft'), 
+    puzzlePieceBottomRight = document.querySelector('#bottomRight'),
     draggedPiece;
 
 
 function changeBGImage() {
-// bug fix #2 this resets puzzle pieces and goes back to original position while changing background
-puzzlePieces.forEach(piece => {
-    document.querySelector('.puzzle-pieces').appendChild(piece);
-});
-puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+    // bug fix #2 this resets puzzle pieces and goes back to original position      while changing background
+    puzzlePieces.forEach(piece => {
+        document.querySelector('.puzzle-pieces').appendChild(piece);
+    });
+    puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+
+    puzzlePieceTopLeft.setAttribute("src", `images/topLeft${this.id}.jpg`);
+    puzzlePieceTopRight.setAttribute("src", `images/topRight${this.id}.jpg`);
+    puzzlePieceBottomLeft.setAttribute("src", `images/bottomLeft${this.id}.jpg`);
+    puzzlePieceBottomRight.setAttribute("src", `images/bottomRight${this.id}.jpg`);
+
 }
 
 function handleStartDrag() {
